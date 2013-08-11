@@ -1,22 +1,25 @@
 #!/bin/sh
 
-sudo yum -y install zsh tmux mercurial ncurses-devel gcc gcc-c++
+sudo yum -y install zsh tmux mercurial ncurses-devel gcc gcc-c++ paco
 
 mkdir ~/src
 cd ~/src
 
-# install vim
-hg clone https://vim.googlecode.com/hg/ vim
+# install vim74
+hg clone https://vim.googlecode.com/hg/ vim74
 cd vim
 ./configure --with-features=huge --enable-multibyte --disable-selinux
 make
-sudo make install clean
+sudo paco -D make install clean
 
-# install zsh-5.0.0
+# install zsh-5.0.2
 cd ~/src
-wget http://downloads.sourceforge.net/project/zsh/zsh/5.0.0/zsh-5.0.0.tar.gz
-tar zxvf zsh-5.0.0.tar.gz
-cd zsh-5.0.0
+wget http://sourceforge.net/projects/zsh/files/zsh/5.0.2/zsh-5.0.2.tar.bz2/download
+tar xvjf zsh-5.0.2.tar.bz2
+cd zsh-5.0.2
 ./configure
 make
-sudo make install clean
+sudo paco -D make install clean
+
+# update
+sudo paco -ua
