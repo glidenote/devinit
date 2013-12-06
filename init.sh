@@ -6,7 +6,7 @@ mkdir ~/src
 cd ~/src
 
 # install vim74
-hg clone https://vim.googlecode.com/hg/ vim74
+hg clone https://vim.googlecode.com/hg/ vim
 cd vim
 ./configure --with-features=huge --enable-multibyte --disable-selinux
 make
